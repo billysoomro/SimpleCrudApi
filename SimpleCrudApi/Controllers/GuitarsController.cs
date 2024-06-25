@@ -43,14 +43,7 @@ namespace SimpleCrudApi.Controllers
         [HttpPut]
         public async Task<IActionResult> Put([FromBody] Guitar guitar)
         {
-            var guitarFromTable = await _dynamoDBContext.LoadAsync<Guitar>(guitar.Id);
-
-            guitarFromTable.Make = guitar.Make;
-            guitarFromTable.Model = guitar.Model;
-            guitarFromTable.Shape = guitar.Shape;
-            guitarFromTable.Strings = guitar.Strings;
-
-            await _dynamoDBContext.SaveAsync(guitarFromTable);
+            await _dynamoDBContext.SaveAsync(guitar);
 
             return Ok(guitar);
         }
