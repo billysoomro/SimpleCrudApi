@@ -3,6 +3,7 @@ using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.DataModel;
 using Amazon.Runtime;
 using SimpleCrudApi.HostedServices;
+using SimpleFrontEnd.HealthChecks;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +18,8 @@ var awsConfig = new AmazonDynamoDBConfig
 {
     RegionEndpoint = RegionEndpoint.EUWest2,    
 };
+
+builder.Services.AddHealthChecks().AddCheck<DynamoDBHealthCheck>("DynamoDBHealthCheck");
 
 var dynamoDbClient = new AmazonDynamoDBClient(credentials, awsConfig);
 
@@ -42,5 +45,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapHealthChecks("/health");
 
 app.Run();
