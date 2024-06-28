@@ -2,7 +2,7 @@
 using Amazon.DynamoDBv2.Model;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 
-namespace SimpleFrontEnd.HealthChecks
+namespace SimpleCrudApi.HealthChecks
 {
     public class DynamoDBHealthCheck : IHealthCheck
     {

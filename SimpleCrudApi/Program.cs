@@ -1,18 +1,13 @@
 using Amazon;
 using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.DataModel;
-using Amazon.Runtime;
 using SimpleCrudApi.HostedServices;
-using SimpleFrontEnd.HealthChecks;
+using SimpleCrudApi.HealthChecks;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
-
-var accessKey = Environment.GetEnvironmentVariable("AWS_ACCESS_KEY");
-var secretAccessKey = Environment.GetEnvironmentVariable("AWS_SECRET_ACCESS_KEY");
-var credentials = new BasicAWSCredentials(accessKey, secretAccessKey);
 
 var awsConfig = new AmazonDynamoDBConfig
 {
@@ -21,7 +16,7 @@ var awsConfig = new AmazonDynamoDBConfig
 
 builder.Services.AddHealthChecks().AddCheck<DynamoDBHealthCheck>("DynamoDBHealthCheck");
 
-var dynamoDbClient = new AmazonDynamoDBClient(credentials, awsConfig);
+var dynamoDbClient = new AmazonDynamoDBClient(awsConfig);
 
 builder.Services.AddSingleton<IAmazonDynamoDB>(dynamoDbClient);
 builder.Services.AddSingleton<IDynamoDBContext, DynamoDBContext>();
