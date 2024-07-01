@@ -18,34 +18,76 @@ namespace SimpleCrudApi.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var conditions = new List<ScanCondition>();
-            var guitars = await _dynamoDBContext.ScanAsync<Guitar>(conditions).GetRemainingAsync();
+            try
+            {
+                var conditions = new List<ScanCondition>();
+                var guitars = await _dynamoDBContext.ScanAsync<Guitar>(conditions).GetRemainingAsync();
 
-            return Ok(guitars);
+                if (guitars == null)
+                {
+                    return NotFound("No Guitars found");
+                }
+
+                return Ok(guitars);
+            }
+
+            catch (Exception ex) 
+            { 
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
-            var guitar = await _dynamoDBContext.LoadAsync<Guitar>(id);
+            try
+            {
+                var guitar = await _dynamoDBContext.LoadAsync<Guitar>(id);
 
-            return Ok(guitar);
+                if (guitar == null)
+                {
+                    return NotFound($"Guitar id {id} not found");
+                }
+
+                return Ok(guitar);
+            }
+
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] Guitar guitar)
         {
-            await _dynamoDBContext.SaveAsync(guitar);
+            try
+            {
+                await _dynamoDBContext.SaveAsync(guitar);
 
-            return Created($"api/guitars/{guitar.Id}", guitar);           
+                return Created($"api/guitars/{guitar.Id}", guitar);
+            }
+
+            catch (Exception ex) { 
+            
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPut]
         public async Task<IActionResult> Put([FromBody] Guitar guitar)
         {
-            await _dynamoDBContext.SaveAsync(guitar);
+            try
+            {
+                await _dynamoDBContext.SaveAsync(guitar);
 
-            return Ok(guitar);
+                return Ok(guitar);
+            }
+
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpDelete("{id}")]
