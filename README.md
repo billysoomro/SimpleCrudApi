@@ -1,6 +1,6 @@
 # SimpleCrudApi
 
-SimpleCrudApi is a CRUD API that interacts with a DynamoDB table. This API allows you to manage guitar objects, simulate cpu stress, and retrieve AWS availability zone information.
+A simple .NET CRUD API that interacts with a DynamoDB table. This API allows you to manage guitar objects, simulate cpu stress, and retrieve AWS availability zone information.
 
 ## Table of Contents
 
