@@ -44,10 +44,10 @@ A simple .NET CRUD API that interacts with a DynamoDB table. This API allows you
 | Method   | URL                                      | Description                              |
 | -------- | ---------------------------------------- | ---------------------------------------- |
 | `GET`    | `/api/guitars`                           | Retrieve all guitars.                    |
-| `GET`    | `/api/guitars/1`                         | Retrieve guitar with id 1.               |
+| `GET`    | `/api/guitars/1`                         | Retrieve guitar with an id of 1.         |
 | `POST`   | `/api/guitars`                           | Create a new guitar.                     |
-| `PUT`    | `/api/guitars/2`                         | Update a guitar with id 2.               |
-| `DELETE` | `/api/guitars/3`                         | Delete a guitar with id 3.               |
+| `PUT`    | `/api/guitars`                           | Update a guitar.                         |
+| `DELETE` | `/api/guitars/2`                         | Delete a guitar with an id of 2.         |
 
 Request Body for POST and PUT:
 - **Request Body**
