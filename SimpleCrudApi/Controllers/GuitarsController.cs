@@ -93,9 +93,17 @@ namespace SimpleCrudApi.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            await _dynamoDBContext.DeleteAsync<Guitar>(id);
+            try
+            {
+                await _dynamoDBContext.DeleteAsync<Guitar>(id);
 
-            return Ok($"Guitar {id} Deleted");
+                return Ok($"Guitar {id} Deleted");
+            }
+
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

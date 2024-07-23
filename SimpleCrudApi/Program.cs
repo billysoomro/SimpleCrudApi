@@ -15,6 +15,7 @@ var awsConfig = new AmazonDynamoDBConfig
 };
 
 builder.Services.AddHealthChecks().AddCheck<DynamoDBHealthCheck>("DynamoDBHealthCheck");
+builder.Services.AddAWSLambdaHosting(LambdaEventSource.HttpApi);
 
 var dynamoDbClient = new AmazonDynamoDBClient(awsConfig);
 
