@@ -15,7 +15,6 @@ var awsConfig = new AmazonDynamoDBConfig
 };
 
 builder.Services.AddHealthChecks().AddCheck<DynamoDBHealthCheck>("DynamoDBHealthCheck");
-builder.Services.AddAWSLambdaHosting(LambdaEventSource.HttpApi);
 
 var dynamoDbClient = new AmazonDynamoDBClient(awsConfig);
 
@@ -26,6 +25,8 @@ builder.Services.AddHostedService<DynamoDBDataPopulator>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddAWSLambdaHosting(LambdaEventSource.HttpApi);
 
 var app = builder.Build();
 

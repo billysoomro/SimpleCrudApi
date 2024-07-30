@@ -1,0 +1,22 @@
+
+{
+    "region" : "eu-west-2",
+    "profile" : "MainAdminUser",
+    "configuration" : "Release",
+    "framework"     : "net8.0",
+    "function-name" : "SimpleCrudApi",
+    "package-type"  : "Zip",
+    "function-handler" : "SimpleCrudApi",
+    "function-memory-size" : 256,
+    "function-role"        : "arn:aws:iam::637423394203:role/lambda-role-for-dynamodb-access",
+    "function-timeout"     : 10,
+    "function-runtime"     : "dotnet8",
+    "function-architecture" : "x86_64",
+    "function-subnets"      : "subnet-0cc5eb8e0c5215203,subnet-0026bea1bf6503a6f",
+    "function-security-groups" : "sg-075a9a1576bb6a757",
+    "tracing-mode"             : "PassThrough",
+    "environment-variables"    : "\"RUNNING_IN_LAMBDA_FUNCTION\"=\"true\"",
+    "dockerfile"               : "Dockerfile",
+    "image-tag"                : "",
+    "function-description"     : "SimpleCrudApi running on aws lambda"
+}

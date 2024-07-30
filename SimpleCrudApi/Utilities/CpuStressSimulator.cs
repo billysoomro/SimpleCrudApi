@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace SimpleCrudApi.Utlilities
+namespace SimpleCrudApi.Utilities
 {
     public class CpuStressSimulator
     {
