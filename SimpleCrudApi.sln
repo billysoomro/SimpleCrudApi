@@ -5,6 +5,8 @@ VisualStudioVersion = 17.10.34916.146
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleCrudApi", "SimpleCrudApi\SimpleCrudApi.csproj", "{C480FF17-7919-4AD9-B230-98827C8718EB}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleCrudApi.UnitTests", "SimpleCrudApi.UnitTests\SimpleCrudApi.UnitTests.csproj", "{30D97ABF-BF4A-48D9-9941-3D912CCB775A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{C480FF17-7919-4AD9-B230-98827C8718EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C480FF17-7919-4AD9-B230-98827C8718EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C480FF17-7919-4AD9-B230-98827C8718EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30D97ABF-BF4A-48D9-9941-3D912CCB775A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30D97ABF-BF4A-48D9-9941-3D912CCB775A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30D97ABF-BF4A-48D9-9941-3D912CCB775A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30D97ABF-BF4A-48D9-9941-3D912CCB775A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
