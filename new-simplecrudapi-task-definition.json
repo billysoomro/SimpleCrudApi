@@ -1,5 +1,5 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:eu-west-2:637423394203:task-definition/simplecrudapi-task-definition:1",
+    "taskDefinitionArn": "arn:aws:ecs:eu-west-2:637423394203:task-definition/new-simplecrudapi-task-definition:1",
     "containerDefinitions": [
         {
             "name": "simplecrudapi-container",
@@ -7,9 +7,9 @@
             "cpu": 0,
             "portMappings": [
                 {
-                    "name": "simplecrudapi-container-80-tcp",
-                    "containerPort": 80,
-                    "hostPort": 80,
+                    "name": "simplecrudapi-container-8080-tcp",
+                    "containerPort": 8080,
+                    "hostPort": 8080,
                     "protocol": "tcp",
                     "appProtocol": "http"
                 }
@@ -23,7 +23,7 @@
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "/ecs/simplecrudapi-task-definition",
+                    "awslogs-group": "/ecs/new-simplecrudapi-task-definition",
                     "mode": "non-blocking",
                     "awslogs-create-group": "true",
                     "max-buffer-size": "25m",
@@ -35,7 +35,7 @@
             "systemControls": []
         }
     ],
-    "family": "simplecrudapi-task-definition",
+    "family": "new-simplecrudapi-task-definition",
     "taskRoleArn": "arn:aws:iam::637423394203:role/task-role-for-dynamodb-access",
     "executionRoleArn": "arn:aws:iam::637423394203:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
@@ -88,7 +88,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2024-09-25T12:52:37.451Z",
+    "registeredAt": "2024-09-30T09:34:19.615Z",
     "registeredBy": "arn:aws:iam::637423394203:user/MainAdminUser",
     "tags": []
 }
