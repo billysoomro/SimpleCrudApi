@@ -12,7 +12,7 @@ WORKDIR /src
 COPY ["SimpleCrudApi/SimpleCrudApi.csproj", "SimpleCrudApi/"]
 RUN dotnet restore "./SimpleCrudApi/SimpleCrudApi.csproj"
 COPY . .
-WORKDIR "/src/WebApplication1"
+WORKDIR "/src/SimpleCrudApi"
 RUN dotnet build "./SimpleCrudApi.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
